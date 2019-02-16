@@ -1,25 +1,25 @@
 name: github.com/opspec-pkgs/mysql.db.waitready
 description: pings a mysql database
 inputs:
-  mysqlUsername:
+  dbUsername:
     string:
       constraints: { minLength: 1 }
       description: username for the mysql database
-  mysqlPassword:
+  dbPassword:
     string:
       constraints: { minLength: 1 }
       isSecret: true
       description: password for the mysql database
-  mysqlHost:
+  dbHost:
     string:
       constraints: { minLength: 1 }
       description: hostname for the mysql database
-  mysqlPort:
+  dbPort:
     number:
       constraints: { minimum: 0, maximum: 65535 }
       default: 3306
       description: port for the mysql database
-  mysqlSchema:
+  dbSchema:
     string:
       constraints: { minLength: 0 }
       default: ""
@@ -29,18 +29,18 @@ inputs:
       constraints: { minimum: 0 }
       default: 60
       description: number of seconds before giving up on waiting for the database to be avaliable
-version: 1.0.0
+version: 1.0.1
 run:
   container:
     image: { ref: 'golang:1.11' }
     dirs:
       /app: $(/)
     envVars:
-      mysqlUsername:
-      mysqlPassword:
-      mysqlHost:
-      mysqlPort:
-      mysqlSchema:
+      dbUsername:
+      dbPassword:
+      dbHost:
+      dbPort:
+      dbSchema:
       timeout:
       GOFLAGS: "-mod=vendor"
     cmd: [ 'go', 'run', 'main.go' ]

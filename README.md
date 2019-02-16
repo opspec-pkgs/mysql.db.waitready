@@ -15,28 +15,28 @@ the op uses [![opspec 0.1.5](https://img.shields.io/badge/opspec-0.1.5-brightgre
 ## Install
 
 ```shell
-opctl op install github.com/opspec-pkgs/mysql.db.waitready#1.0.0
+opctl op install github.com/opspec-pkgs/mysql.db.waitready#1.0.1
 ```
 
 ## Run
 
 ```
-opctl run github.com/opspec-pkgs/mysql.db.waitready#1.0.0
+opctl run github.com/opspec-pkgs/mysql.db.waitready#1.0.1
 ```
 
 ## Compose
 
 ```yaml
 op:
-  ref: github.com/opspec-pkgs/mysql.db.waitready#1.0.0
+  ref: github.com/opspec-pkgs/mysql.db.waitready#1.0.1
   inputs:
     # required
-    mysqlHost:
-    mysqlPassword:
-    mysqlSchema:
-    mysqlUsername:
+    dbHost:
+    dbPassword:
+    dbSchema:
+    dbUsername:
     ### optional; uncomment to override default(s)
-    # mysqlPort: 3306
+    # dbPort: 3306
     # timeout: 60
 ```
 

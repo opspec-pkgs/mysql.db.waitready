@@ -12,11 +12,11 @@ import (
 )
 
 func main() {
-	username := os.Getenv("mysqlUsername")
-	password := os.Getenv("mysqlPassword")
-	host := os.Getenv("mysqlHost")
-	port := os.Getenv("mysqlPort")
-	schema := os.Getenv("mysqlSchema")
+	username := os.Getenv("dbUsername")
+	password := os.Getenv("dbPassword")
+	host := os.Getenv("dbHost")
+	port := os.Getenv("dbPort")
+	schema := os.Getenv("dbSchema")
 	timeoutSecs, err := strconv.Atoi(os.Getenv("timeout"))
 
 	if err != nil {
