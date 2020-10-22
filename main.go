@@ -36,19 +36,18 @@ func main() {
 
 	startTime := time.Now()
 
-	fmt.Print("trying to connect")
 	for {
-		fmt.Println("trying to connect...")
+		fmt.Println("trying to connect...(START)")
 		if err = db.Ping(); err == nil {
 			break
 		}
 
 		if time.Now().Sub(startTime) > timeout {
-			log.Fatal("Unable to connect to the database!")
+			log.Fatal("trying to connect...(FAILED)")
 		}
 
 		time.Sleep(2 * time.Second)
 	}
 
-	fmt.Println("connection established...")
+	fmt.Println("trying to connect...(SUCCEEDED)")
 }
